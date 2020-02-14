@@ -1,0 +1,20 @@
+PMA_score = {'1959801':{'name':'Amy','module_a':45,'module_b':55,'module_c':60},
+            '1959802':{'name':'Betty','module_a':65,'module_b':75,'module_c':68},
+            '1959803':{'name':'Cathrine','module_a':54,'module_b':62,'module_c':35},}
+module = {'module_a':'ebf',
+         'module_b':'eecs',
+         'module_c':'bdav'}
+         
+def avg_score(studentid):
+    avgscore = (PMA_score[studentid]['module_a']+PMA_score[studentid]['module_b']+PMA_score[studentid]['module_c'])/3
+    return avgscore
+
+def find_top():
+    avg_top=0
+    studentid_top='1'
+    for studentid in PMA_score:
+        if avg_score(studentid)> avg_top:
+            avg_top = avg_score(studentid)
+            studentid_top = studentid
+    print("top student is "+ PMA_score[studentid_top]['name'] + ". avg_score:"+ str(avg_top))
+find_top()
