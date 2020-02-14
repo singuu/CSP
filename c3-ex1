@@ -1,0 +1,23 @@
+PMA_score = {'1959801':{'module_a':45,'module_b':55,'module_c':60},
+            '1959802':{'module_a':65,'module_b':75,'module_c':68},
+            '1959803':{'module_a':54,'module_b':62,'module_c':35},}
+
+module = {'module_a':'ebf',
+         'module_b':'eecs',
+         'module_c':'bdav'}
+
+def mark_PMA(score):
+    if score<50:
+        print('fail')
+    elif score >= 50 and score < 60:
+        print('pass')
+    elif score >= 60 and score < 70:
+        print('merit')
+    elif score >= 70 and score <= 100:
+        print('distinction')
+        
+for i in PMA_score: #print student id,module name and score and grade
+    print('studentid:'+str(i))
+    for j in module:
+        print(str(module[j]) +":"+str(PMA_score[i][j])+" ",end="")
+        mark_PMA(PMA_score[i][j])
