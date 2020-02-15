@@ -1,0 +1,26 @@
+PMA_score = {'1959801':{'name':'Amy','score':{'module_a':45,'module_b':55,'module_c':60}},
+            '1959802':{'name':'Betty','score':{'module_a':65,'module_b':75,'module_c':68}},
+            '1959803':{'name':'Cathrine','score':{'module_a':54,'module_b':62,'module_c':35}}}
+module = {'module_a':'ebf',
+         'module_b':'eecs',
+         'module_c':'bdav'}
+def avg_score(studentid):
+    sumscore=0
+    avgscore=0
+    for module in PMA_score[studentid]['score']:
+        sumscore += PMA_score[studentid]['score'][module]
+    avgscore=sumscore/len(PMA_score[studentid]['score'])
+    return avgscore
+def mark_checker(studentid,grade,module_num):
+    sumscore=0
+    avgscore=0
+    for module in PMA_score[studentid]['score']:
+        sumscore += PMA_score[studentid]['score'][module]
+    if grade is 'distinction':
+        avgscore=70
+    elif grade is 'merit':
+        avgscore=60  
+    avgscore_left=(avgscore*(module_num+len(PMA_score[studentid]['score']))-sumscore)/module_num
+    print('Student '+str(studentid)+ ' requires an average of '+ str(avgscore_left) +
+          ' marks per PMA to achieve a '+ str(grade))
+mark_checker("1959801", "distinction", 5)
